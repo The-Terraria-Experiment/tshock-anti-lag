@@ -6,6 +6,8 @@ one-class change.
 
 Built against **TShock 6.1.0** / **TSAPI 6.1.0** / **OTAPI 1.4.5.6** (Terraria 1.4.5.6) on **.NET 9**.
 
+DISCLAIMER: This plugin is almost entirely created by AI. Although it has been tested and used, most of the source code has not been thoroughly human-reviewed. Use with caution.
+
 ## Strategies
 
 | Name | What it does | Default |
