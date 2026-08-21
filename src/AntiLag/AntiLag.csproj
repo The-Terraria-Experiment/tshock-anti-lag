@@ -1,0 +1,29 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <AssemblyName>AntiLag</AssemblyName>
+    <RootNamespace>AntiLag</RootNamespace>
+    <Nullable>enable</Nullable>
+    <LangVersion>latest</LangVersion>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <!-- The server already ships TShock/TSAPI/OTAPI and their dependencies.
+         Copying them into bin/ would cause assembly load conflicts at runtime. -->
+    <CopyLocalLockFileAssemblies>false</CopyLocalLockFileAssemblies>
+    <!-- A plugin is loaded by the server, not launched; a deps.json for it is dead weight. -->
+    <GenerateDependencyFile>false</GenerateDependencyFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- runtime: keep the server's own TShock/TSAPI/OTAPI assemblies out of our output.
+         contentFiles: the TShock package ships HttpServer.dll as a content file, which
+         ExcludeAssets="runtime" alone does not suppress. -->
+    <PackageReference Include="TShock" Version="6.1.0" ExcludeAssets="runtime;contentFiles" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <InternalsVisibleTo Include="AntiLag.Tests" />
+  </ItemGroup>
+
+</Project>
