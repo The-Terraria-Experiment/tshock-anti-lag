@@ -29,6 +29,9 @@ namespace AntiLag.Strategies
 	{
 		private const int TicksPerSecond = 60;
 
+		/// <summary>Rarities below this are the special Quest, Expert and Master rarities.</summary>
+		private const int LowestOrdinaryRarity = -10;
+
 		private AntiLagContext? _context;
 		private int _currentMaxAgeSeconds;
 		private int _lastSweepCleared;
@@ -171,7 +174,9 @@ namespace AntiLag.Strategies
 			if (settings.ProtectCoins && IsCoin(item.type))
 				return true;
 
-			if (item.rare >= settings.ProtectedRarity)
+			// Quest fish (-11), Expert (-12, treasure bags) and Master (-13) sit below every
+			// ordinary rarity, so the threshold alone would clear them. They are loot, never litter.
+			if (item.rare >= settings.ProtectedRarity || item.rare < LowestOrdinaryRarity)
 				return true;
 
 			if (settings.ProtectedStackValue > 0)
