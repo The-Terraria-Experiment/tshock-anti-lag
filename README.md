@@ -85,7 +85,7 @@ Written to `tshock/AntiLag.json` on first run. `/antilag reload` or TShock's `/r
 | `MinItemAgeSeconds` | `20` | Floor on the grace period after TPS scaling. |
 | `MaxItemAgeSecondsCap` | `1800` | Ceiling on the grace period. |
 | `MinimumItemsBeforeSweep` | `50` | Skip the sweep below this many ground items. |
-| `ProtectedRarity` | `5` | Never clear items at or above this rarity (-1 gray … 11 red). |
+| `ProtectedRarity` | `5` | Never clear items at or above this rarity (-1 gray … 11 red). Quest, Expert and Master rarity items (treasure bags included) are always kept. |
 | `ProtectedStackValue` | `500000` | Never clear stacks worth at least this much copper. `0` disables. |
 | `ExemptItemIds` | `[]` | Item type IDs never cleared. |
 | `ProtectCoins` | `true` | Leave coins alone. |
